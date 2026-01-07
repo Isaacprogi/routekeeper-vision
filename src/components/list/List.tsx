@@ -1,4 +1,3 @@
-// visualizer/RouteTree.tsx - FIXED HIERARCHY AND SPACING
 import React from "react";
 import type { VisualRouteNode } from "../../../utils/type";
 

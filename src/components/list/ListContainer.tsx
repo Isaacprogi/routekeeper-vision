@@ -11,11 +11,10 @@ type Props = {
   setSelectedNode: React.Dispatch<React.SetStateAction<VisualRouteNode | null>>;
 };
 
-// Local storage key for expanded nodes
+
 const EXPANDED_NODES_KEY = 'routekeeper_expanded_nodes';
 
 export const ListContainer: React.FC<Props> = ({ routes, selectedNode, setSelectedNode }) => {
-  // Internal state management
   const [graph, setGraph] = useState<VisualRouteNode[]>(() => buildRouteGraph(routes));
   const [expandedNodes, setExpandedNodes] = useState<Set<string>>(() => {
     const saved = localStorage.getItem(EXPANDED_NODES_KEY);
@@ -30,12 +29,11 @@ export const ListContainer: React.FC<Props> = ({ routes, selectedNode, setSelect
     return new Set();
   });
 
-  // Update graph when routes prop changes
   useEffect(() => {
     setGraph(buildRouteGraph(routes));
   }, [routes]);
 
-  // Save to localStorage whenever expanded nodes change
+
   useEffect(() => {
     try {
       localStorage.setItem(EXPANDED_NODES_KEY, JSON.stringify(Array.from(expandedNodes)));
@@ -44,25 +42,21 @@ export const ListContainer: React.FC<Props> = ({ routes, selectedNode, setSelect
     }
   }, [expandedNodes]);
 
-  // Handle node selection
+
   const handleNodeSelect = (node: VisualRouteNode) => {
     setSelectedNode(node);
   };
 
-  // Toggle single node expansion
   const handleToggleExpand = (nodeId: string) => {
     const next = new Set(expandedNodes);
     next.has(nodeId) ? next.delete(nodeId) : next.add(nodeId);
     setExpandedNodes(next);
   };
 
-  // Toggle expand all nodes
   const toggleExpandAllNodes = () => {
     if (expandedNodes.size > 0) {
-      // If there are expanded nodes, collapse all
       setExpandedNodes(new Set());
     } else {
-      // If no expanded nodes, expand all
       const allNodeIds = new Set<string>();
 
       const collectAllNodeIds = (nodes: VisualRouteNode[]) => {
@@ -79,14 +73,12 @@ export const ListContainer: React.FC<Props> = ({ routes, selectedNode, setSelect
     }
   };
 
-  // Reset tree state
   const resetTree = () => {
     setExpandedNodes(new Set());
     setSelectedNode(null);
     localStorage.removeItem(EXPANDED_NODES_KEY);
   };
 
-  // Calculate tree stats
   const totalNodes = graph.reduce((count, node) => {
     const countNodes = (n: VisualRouteNode): number => {
       return 1 + n.children.reduce((sum, child) => sum + countNodes(child), 0);
@@ -94,7 +86,6 @@ export const ListContainer: React.FC<Props> = ({ routes, selectedNode, setSelect
     return count + countNodes(node);
   }, 0);
 
-  // Render loading state
   if (graph.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center p-8 text-center border border-[#2a2a2a] rounded-lg bg-[#1a1a1f]">
@@ -108,12 +99,10 @@ export const ListContainer: React.FC<Props> = ({ routes, selectedNode, setSelect
   return (
     <div className="bg-[#1a1a1f] min-h-screen">
       <div className="max-w-[95%] mx-auto py-4">
-        {/* Header with Stats */}
         <div className="bg-[#1a1a1f] border border-[#2a2a2a] rounded-lg p-4 mb-4">
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-3">
               <FaTree className="w-5 h-5 text-[#64b5f6]" />
-              <h2 className="text-lg font-medium text-[#e0e0e0]">Route Tree</h2>
               <span className="px-2 py-1 text-xs font-medium bg-[#2a2a35] text-[#888] rounded">
                 {totalNodes} nodes
               </span>

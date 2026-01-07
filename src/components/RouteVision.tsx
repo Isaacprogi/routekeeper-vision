@@ -155,7 +155,7 @@ export const RouteKeeperVision: React.FC<Props> = ({
             <button
               className={`p-3 flex items-center gap-2 border border-[#4a4a55] rounded-lg relative transition-all duration-200 ${
                 viewMode === "vertical"
-                  ? "bg-gradient-to-br from-[#3a3a45] to-[#2a2a35] text-[#64b5f6] font-semibold shadow-lg shadow-[#64b5f6]/10"
+                  ? "bg-gradient-to-br from-[#3a3a45] to-[#2a2a35] text-[#64b5f6] font-semibold shadow-md"
                   : "hover:bg-[#353540] hover:text-gray-300 text-[#a0a0a0] hover:shadow-md hover:border-[#5a5a65]"
               }`}
               onClick={() => handleViewModeChange("vertical")}
@@ -167,7 +167,7 @@ export const RouteKeeperVision: React.FC<Props> = ({
             <button
               className={`p-3 flex items-center gap-2 border border-[#4a4a55] rounded-lg relative transition-all duration-200 ${
                 viewMode === "tree"
-                  ? "bg-gradient-to-br from-[#3a3a45] to-[#2a2a35] text-[#64b5f6] font-semibold shadow-lg shadow-[#64b5f6]/10"
+                  ? "bg-gradient-to-br from-[#3a3a45] to-[#2a2a35] text-[#64b5f6] font-semibold shadow-md "
                   : "hover:bg-[#353540] hover:text-gray-300 text-[#a0a0a0] hover:shadow-md hover:border-[#5a5a65]"
               }`}
               onClick={() => handleViewModeChange("tree")}
@@ -179,7 +179,7 @@ export const RouteKeeperVision: React.FC<Props> = ({
             <button
               className={`p-3 flex items-center gap-2 border border-[#4a4a55] rounded-lg relative transition-all duration-200 ${
                 viewMode === "simulate"
-                  ? "bg-gradient-to-br from-[#3a3a45] to-[#2a2a35] text-[#64b5f6] font-semibold shadow-lg shadow-[#64b5f6]/10"
+                  ? "bg-gradient-to-br from-[#3a3a45] to-[#2a2a35] text-[#64b5f6] font-semibold shadow-md"
                   : "hover:bg-[#353540] hover:text-gray-300 text-[#a0a0a0] hover:shadow-md hover:border-[#5a5a65]"
               }`}
               onClick={() => handleViewModeChange("simulate")}
@@ -191,7 +191,7 @@ export const RouteKeeperVision: React.FC<Props> = ({
             <button
               className={`p-3 flex items-center gap-2 border border-[#4a4a55] rounded-lg relative transition-all duration-200 ${
                 viewMode === "mount"
-                  ? "bg-gradient-to-br from-[#3a3a45] to-[#2a2a35] text-[#64b5f6] font-semibold shadow-lg shadow-[#64b5f6]/10"
+                  ? "bg-gradient-to-br from-[#3a3a45] to-[#2a2a35] text-[#64b5f6] font-semibold shadow-md"
                   : "hover:bg-[#353540] hover:text-gray-300 text-[#a0a0a0] hover:shadow-md hover:border-[#5a5a65]"
               }`}
               onClick={() => handleViewModeChange("mount")}
@@ -203,7 +203,7 @@ export const RouteKeeperVision: React.FC<Props> = ({
             <button
               className={`p-3 flex items-center gap-2 border border-[#4a4a55] rounded-lg relative transition-all duration-200 ${
                 viewMode === "issues"
-                  ? "bg-gradient-to-br from-[#3a3a45] to-[#2a2a35] text-[#64b5f6] font-semibold shadow-lg shadow-[#64b5f6]/10"
+                  ? "bg-gradient-to-br from-[#3a3a45] to-[#2a2a35] text-[#64b5f6] font-semibold shadow-md"
                   : "hover:bg-[#353540] hover:text-gray-300 text-[#a0a0a0] hover:shadow-md hover:border-[#5a5a65]"
               }`}
               onClick={() => handleViewModeChange("issues")}
