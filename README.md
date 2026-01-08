@@ -28,7 +28,7 @@ This is used with routekeeper
 import React, { useMemo } from "react";
 import { BrowserRouter } from "react-router-dom";
 
-import { RouteKeeper,defineConfig } from "routekeeper";
+import { RouteKeeper,defineConfig } from "routekeeper-react";
 import { RouteKeeperVision } from "routekeeper-vision";
 
 
