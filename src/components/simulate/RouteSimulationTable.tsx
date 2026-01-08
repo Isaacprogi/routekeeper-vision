@@ -21,7 +21,7 @@ type Props = {
 
 type TabType = 'unauthenticated' | 'authenticated';
 
-// Icon mapping with direct hex colors
+
 const mapIcon = (result?: { access: string }) => {
   if (!result) return <FaMinus className="w-4 h-4 text-[#888]" />;
   if (result.access === "allow") return <FaCheckCircle className="w-4 h-4 text-[#4caf50]" />;
@@ -265,7 +265,6 @@ const RouteSelector: React.FC<{
     <div className="flex items-center justify-between mb-2">
       <h3 className="text-sm font-medium text-[#e0e0e0] flex items-center gap-2">
         <FaRoute className="w-4 h-4 text-[#64b5f6]" />
-        Route Selector
       </h3>
       <span className="text-xs text-[#888] bg-[#2a2a35] px-2 py-1 rounded">
         {routes.length} routes

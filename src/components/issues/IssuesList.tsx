@@ -9,7 +9,7 @@ interface IssuesComponentProps {
   onIssueClick?: (issue: string, index: number) => void;
 }
 
-const IssuesCard: React.FC<IssuesComponentProps> = ({
+const IssuesList: React.FC<IssuesComponentProps> = ({
   issues,
   title = "Issues",
   type = 'error',
@@ -126,4 +126,4 @@ const IssuesCard: React.FC<IssuesComponentProps> = ({
   );
 };
 
-export default IssuesCard;
+export default IssuesList;

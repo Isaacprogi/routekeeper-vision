@@ -41,37 +41,23 @@ export const RouteKeeperVision: React.FC<RouteVisionProps> = ({
   setTimingRecords,
   issues,setIssues,testingMode,toggleTestingMode
 }) => {
-  // const [viewMode, setViewMode] = useState<ViewMode>(() => {
-  //   const saved = localStorage.getItem(STORAGE_KEYS.VIEW_MODE);
-  //   return (saved as ViewMode) || "vertical";
-  // });
-
   const [viewMode, setViewMode] = useState<ViewMode>(() => {
-  if (typeof window === "undefined") return "vertical"; // <-- safe default
-  const saved = localStorage.getItem(STORAGE_KEYS.VIEW_MODE);
-  return (saved as ViewMode) || "vertical";
-});
+    const saved = localStorage.getItem(STORAGE_KEYS.VIEW_MODE);
+    return (saved as ViewMode) || "vertical";
+  });
 
-const [openPanel, setOpenPanel] = useState<boolean>(() => {
-  if (typeof window === "undefined") return true; // safe default
-  const saved = localStorage.getItem(STORAGE_KEYS.PANEL_STATE);
-  return saved ? JSON.parse(saved) : true;
-});
-
-  // For vertical view
   const [graph] = useState(() => buildRouteGraph(routes));
   const [selectedNode, setSelectedNode] = useState<VisualRouteNode | null>(
     null
   );
-  console.log("jjssjs")
+  
 
-  // const [openPanel, setOpenPanel] = useState<boolean>(() => {
-  //   const saved = localStorage.getItem(STORAGE_KEYS.PANEL_STATE);
-  //   return saved ? JSON.parse(saved) : true;
-  // });
+  const [openPanel, setOpenPanel] = useState<boolean>(() => {
+    const saved = localStorage.getItem(STORAGE_KEYS.PANEL_STATE);
+    return saved ? JSON.parse(saved) : true;
+  });
   const isMobile = useMobile(1024);
 
-  // Save to localStorage whenever state changes
   useEffect(() => {
     localStorage.setItem(STORAGE_KEYS.VIEW_MODE, viewMode);
   }, [viewMode]);
@@ -82,7 +68,7 @@ const [openPanel, setOpenPanel] = useState<boolean>(() => {
 
   const togglePanel = () => setOpenPanel((prev) => !prev);
 
-  // Simulation logic
+
   const hasRoles = useMemo(() => routesUseRoles(routes), [routes]);
   const scenarios = useMemo(() => buildScenarios(hasRoles, routes), [hasRoles]);
 
@@ -102,7 +88,7 @@ const [openPanel, setOpenPanel] = useState<boolean>(() => {
     }
   },[selectedNode])
 
-  // Extract all unique route paths
+
   const routePaths = useMemo(() => {
     const paths = new Set();
 
@@ -135,7 +121,6 @@ const [openPanel, setOpenPanel] = useState<boolean>(() => {
   }, [routes]);
 
 
-  // Handle view mode change
   const handleViewModeChange = (mode: ViewMode) => {
     setViewMode(mode);
     if (mode === "simulate" || mode === "mount") {
@@ -143,7 +128,6 @@ const [openPanel, setOpenPanel] = useState<boolean>(() => {
     }
   };
 
-  // For vertical view only
   const handleNodeSelect = (node: VisualRouteNode) => {
     setSelectedNode(node);
   };

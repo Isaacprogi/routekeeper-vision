@@ -1,5 +1,5 @@
 import React from 'react';
-import IssuesCard from './IssuesCard';
+import IssuesCard from './IssuesList';
 
 type IssuesPanelProps = {
   issues: string[];
