@@ -4,13 +4,13 @@
   "description": "RouteKeeper Visual Debugger / Inspector",
   "author": "Isaac Anasonye",
   "license": "MIT",
-  "homepage": "https://github.com/Isaacprogi/react-route-keeper#readme",
+  "homepage": "https://github.com/Isaacprogi/routekeeper-vision#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Isaacprogi/react-route-keeper.git"
+    "url": "https://github.com/Isaacprogi/routekeeper-vision.git"
   },
   "bugs": {
-    "url": "https://github.com/Isaacprogi/react-route-keeper/issues"
+    "url": "https://github.com/Isaacprogi/routekeeper-vision/issues"
   },
   "keywords": [
     "routekeeper",
