@@ -5,6 +5,8 @@
 The **RouteKeeper Vision** is a developer-focused plugin designed to help you
 **understand, inspect, and reason about your React Router configuration using routekeeper**.
 
+<img src="https://github.com/isaacprogi/routekeeper-vision/raw/main/public/rv-screenshot.png" alt="AI World Population Projection screenshot" />
+
 ### Installation
 
 ```bash
