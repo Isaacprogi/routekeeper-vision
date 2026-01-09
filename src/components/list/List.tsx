@@ -35,14 +35,14 @@ export const List: React.FC<Props> = ({
   };
 
   return (
-    <div > {/* This creates gap between routes */}
+    <div> {/* This creates gap between routes */}
       <div
         className={`
-          cursor-pointer transition-all duration-200
-          bg-[#25252d] border border-transparent
+          rk-cursor-pointer rk-transition-all rk-duration-200
+          rk-bg-[#25252d] rk-border rk-border-transparent
           ${isSelected 
-            ? 'bg-[#2d2d35] border-[#4a4a55] shadow-[0_0_0_1px_#4a4a55]' 
-            : 'hover:bg-[#2d2d35] hover:border-[#3a3a45]'
+            ? 'rk-bg-[#2d2d35] rk-border-[#4a4a55] rk-shadow-[0_0_0_1px_#4a4a55]' 
+            : 'hover:rk-bg-[#2d2d35] hover:rk-border-[#3a3a45]'
           }
         `}
         style={{
@@ -54,42 +54,42 @@ export const List: React.FC<Props> = ({
         }}
         onClick={handleClick}
       >
-        <div className="flex items-center gap-2">
+        <div className="rk-flex rk-items-center rk-gap-2">
           <div 
             className="
-              w-5 h-5 flex items-center justify-center 
-              cursor-pointer text-[#888] select-none
+              rk-w-5 rk-h-5 rk-flex rk-items-center rk-justify-center 
+              rk-cursor-pointer rk-text-[#888] rk-select-none
             "
             onClick={handleToggleExpand}
           >
             {hasChildren ? (
-              <span className="text-[10px] transition-transform duration-200">
+              <span className="rk-text-[10px] rk-transition-transform rk-duration-200">
                 {isExpanded ? '▼' : '▶'}
               </span>
             ) : (
-              <span className="text-xs text-[#555]">•</span>
+              <span className="rk-text-xs rk-text-[#555]">•</span>
             )}
           </div>
           
-          <div className="flex-1">
-            <div className="flex justify-between items-center mb-1">
-              <span className="font-semibold text-white">
+          <div className="rk-flex-1">
+            <div className="rk-flex rk-justify-between rk-items-center rk-mb-1">
+              <span className="rk-font-semibold rk-text-white">
                 {node.index ? (
-                  <span className="text-[#64b5f6] italic">Index Route</span>
+                  <span className="rk-text-[#64b5f6] rk-italic">Index Route</span>
                 ) : (
-                  <span className="text-white">{node.path || '/'}</span>
+                  <span className="rk-text-white">{node.path || '/'}</span>
                 )}
               </span>
               
-              <div className="flex gap-[6px] items-center">
+              <div className="rk-flex rk-gap-[6px] rk-items-center">
                 <span className={`
-                  px-2 py-0.5 rounded-full text-[11px] font-semibold uppercase tracking-[0.5px]
-                  border
+                  rk-px-2 rk-py-0.5 rk-rounded-full rk-text-[11px] rk-font-semibold rk-uppercase rk-tracking-[0.5px]
+                  rk-border
                   ${node.type === 'private' 
-                    ? 'bg-[rgba(239,83,80,0.15)] text-[#ef5350] border-[rgba(239,83,80,0.3)]' 
+                    ? 'rk-bg-[rgba(239,83,80,0.15)] rk-text-[#ef5350] rk-border-[rgba(239,83,80,0.3)]' 
                     : node.type === 'public'
-                    ? 'bg-[rgba(76,175,80,0.15)] text-[#4caf50] border-[rgba(76,175,80,0.3)]'
-                    : 'bg-[rgba(158,158,158,0.15)] text-[#9e9e9e] border-[rgba(158,158,158,0.3)]'
+                    ? 'rk-bg-[rgba(76,175,80,0.15)] rk-text-[#4caf50] rk-border-[rgba(76,175,80,0.3)]'
+                    : 'rk-bg-[rgba(158,158,158,0.15)] rk-text-[#9e9e9e] rk-border-[rgba(158,158,158,0.3)]'
                   }
                 `}>
                   {node.type}
@@ -98,8 +98,8 @@ export const List: React.FC<Props> = ({
                 {node.lazy && (
                   <span 
                     className="
-                      px-[6px] py-0.5 rounded-[10px] text-[11px] 
-                      bg-[rgba(255,193,7,0.15)] text-[#ffc107]
+                      rk-px-[6px] rk-py-0.5 rk-rounded-[10px] rk-text-[11px] 
+                      rk-bg-[rgba(255,193,7,0.15)] rk-text-[#ffc107]
                     "
                     title="Lazy loaded"
                   >
@@ -110,8 +110,8 @@ export const List: React.FC<Props> = ({
                 {node.redirectTo && (
                   <span 
                     className="
-                      px-[6px] py-0.5 rounded-[10px] text-[11px]
-                      bg-[rgba(156,39,176,0.15)] text-[#9c27b0]
+                      rk-px-[6px] rk-py-0.5 rk-rounded-[10px] rk-text-[11px]
+                      rk-bg-[rgba(156,39,176,0.15)] rk-text-[#9c27b0]
                     "
                     title={`Redirects to: ${node.redirectTo}`}
                   >
@@ -121,8 +121,8 @@ export const List: React.FC<Props> = ({
                 
                 {hasChildren && (
                   <span className="
-                    px-[6px] py-0.5 rounded-[10px] text-[11px]
-                    bg-[rgba(33,150,243,0.15)] text-[#2196f3]
+                    rk-px-[6px] rk-py-0.5 rk-rounded-[10px] rk-text-[11px]
+                    rk-bg-[rgba(33,150,243,0.15)] rk-text-[#2196f3]
                   ">
                     {node.children.length} child{node.children.length !== 1 ? 'ren' : ''}
                   </span>
@@ -130,16 +130,16 @@ export const List: React.FC<Props> = ({
               </div>
             </div>
             
-            <div className="flex items-center gap-3 text-xs text-[#888]">
+            <div className="rk-flex rk-items-center rk-gap-3 rk-text-xs rk-text-[#888]">
               <span 
-                className="font-['Monaco','Menlo',monospace] text-[#a0a0a0]"
+                className="rk-font-['Monaco','Menlo',monospace] rk-text-[#a0a0a0]"
                 title="Full path"
               >
                 {node.fullPath}
               </span>
               {node.inheritedRoles.length > 0 && (
                 <span 
-                  className="text-[#64b5f6]"
+                  className="rk-text-[#64b5f6]"
                   title="Allowed roles"
                 >
                   👥 {node.inheritedRoles.length}
@@ -153,17 +153,17 @@ export const List: React.FC<Props> = ({
       {/* Children container - EXACTLY like original CSS */}
       {isExpanded && hasChildren && (
         <div className="
-            mt-2
-            border-l border-dashed border-[#3a3a45]
-            flex gap-2
+            rk-mt-2
+            rk-border-l rk-border-dashed rk-border-[#3a3a45]
+            rk-flex rk-gap-2
             
           "
           style={{ marginLeft: `${depth * 20 + 20}px` }}>
-          <div className="h-full w-2">
+          <div className="rk-h-full rk-w-2">
             
           </div>
 
-          <div className="flex-1 flex flex-col gap-2" 
+          <div className="rk-flex-1 rk-flex rk-flex-col rk-gap-2" 
           
         >
           {node.children.map((child:any) => (

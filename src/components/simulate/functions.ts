@@ -13,7 +13,7 @@ export function routesUseRoles(routes: RouteConfig[]): boolean {
 
 export function buildScenarios(hasRoles: boolean, routes: RouteConfig[]) {
   const allRoles = getAllRouteRoles(routes);
-  console.log("All Roles:", allRoles);
+
 
   const unauthenticated = [
     {

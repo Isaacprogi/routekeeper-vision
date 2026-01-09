@@ -30,7 +30,9 @@ export const ListContainer: React.FC<Props> = ({
         const nodes = JSON.parse(saved);
         return new Set(nodes);
       } catch (e) {
-        console.warn("Failed to parse expanded nodes from localStorage:", e);
+         if (import.meta.env.MODE === "development") {
+           console.warn("Failed to parse expanded nodes from localStorage:", e);
+        }   
       }
     }
     return new Set();
@@ -96,10 +98,10 @@ export const ListContainer: React.FC<Props> = ({
 
   if (graph.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center p-8 text-center border border-[#2a2a2a] rounded-lg bg-[#1a1a1f]">
-        <FaTree className="w-12 h-12 text-[#888] mb-3" />
-        <p className="text-sm text-[#888] mb-1">No routes to display</p>
-        <p className="text-xs text-[#666]">
+      <div className="rk-flex rk-flex-col rk-items-center rk-justify-center rk-p-8 rk-text-center rk-border rk-border-[#2a2a2a] rk-rounded-lg rk-bg-[#1a1a1f]">
+        <FaTree className="rk-w-12 rk-h-12 rk-text-[#888] rk-mb-3" />
+        <p className="rk-text-sm rk-text-[#888] rk-mb-1">No routes to display</p>
+        <p className="rk-text-xs rk-text-[#666]">
           Add routes to see the visualization
         </p>
       </div>
@@ -107,55 +109,55 @@ export const ListContainer: React.FC<Props> = ({
   }
 
   return (
-    <div className="bg-[#1a1a1f] min-h-screen">
-      <div className="max-w-[95%] mx-auto py-4">
+    <div className="rk-bg-[#1a1a1f] rk-min-h-screen">
+      <div className="rk-max-w-[95%] rk-mx-auto rk-py-4">
 
-<div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
+<div className="rk-grid rk-grid-cols-2 sm:rk-grid-cols-4 rk-gap-3 rk-mb-4">
   {[
     {
       icon: FaGlobe,
       label: "Public",
       count: graph.filter((n) => n.type === "public").length,
       color: "#4caf50",
-      bg: "bg-[#4caf50]/10",
-      border: "border-[#4caf50]/30"
+      bg: "rk-bg-[#4caf50]/10",
+      border: "rk-border-[#4caf50]/30"
     },
     {
       icon: FaLock,
       label: "Private",
       count: graph.filter((n) => n.type === "private").length,
       color: "#ef5350",
-      bg: "bg-[#ef5350]/10",
-      border: "border-[#ef5350]/30"
+      bg: "rk-bg-[#ef5350]/10",
+      border: "rk-border-[#ef5350]/30"
     },
     {
       icon: FaBolt,
       label: "Lazy",
       count: graph.filter((n) => n.lazy).length,
       color: "#ffc107",
-      bg: "bg-[#ffc107]/10",
-      border: "border-[#ffc107]/30"
+      bg: "rk-bg-[#ffc107]/10",
+      border: "rk-border-[#ffc107]/30"
     },
     {
       icon: LuRedo2,
       label: "Redirect",
       count: graph.filter((n) => n.redirectTo).length,
       color: "#9c27b0",
-      bg: "bg-[#9c27b0]/10",
-      border: "border-[#9c27b0]/30"
+      bg: "rk-bg-[#9c27b0]/10",
+      border: "rk-border-[#9c27b0]/30"
     }
   ].map((stat) => (
     <div 
       key={stat.label} 
-      className={`border rounded-lg p-3 ${stat.bg} border border-[#2a2a2a]`}
+      className={`rk-border rk-rounded-lg rk-p-3 ${stat.bg} rk-border rk-border-[#2a2a2a]`}
     >
-      <div className="flex items-center gap-3">
-        <div className={`p-2 rounded ${stat.bg.replace('/10', '/20')} border border-[#2a2a2a]`}>
-          <stat.icon className="w-4 h-4" style={{ color: stat.color }} />
+      <div className="rk-flex rk-items-center rk-gap-3">
+        <div className={`rk-p-2 rk-rounded ${stat.bg.replace('/10', '/20')} rk-border rk-border-[#2a2a2a]`}>
+          <stat.icon className="rk-w-4 rk-h-4" style={{ color: stat.color }} />
         </div>
-        <div className="flex items-center gap-2">
-          <div className="text-xl font-bold text-[#e0e0e0]">{stat.count}</div>
-          <div className="text-xs text-[#a0a0a0] mt-0.5">{stat.label}</div>
+        <div className="rk-flex rk-items-center rk-gap-2">
+          <div className="rk-text-xl rk-font-bold rk-text-[#e0e0e0]">{stat.count}</div>
+          <div className="rk-text-xs rk-text-[#a0a0a0] rk-mt-0.5">{stat.label}</div>
         </div>
       </div>
     </div>
@@ -165,42 +167,42 @@ export const ListContainer: React.FC<Props> = ({
          
 
         {/* Controls */}
-        <div className="flex flex-wrap gap-3 items-center justify-between mb-4 p-3 border border-[#2a2a2a] rounded-lg bg-[#202025]">
-          <div className="flex items-center gap-2">
+        <div className="rk-flex rk-flex-wrap rk-gap-3 rk-items-center rk-justify-between rk-mb-4 rk-p-3 rk-border rk-border-[#2a2a2a] rk-rounded-lg rk-bg-[#202025]">
+          <div className="rk-flex rk-items-center rk-gap-2">
             <button
               className={`
-                flex items-center gap-2 px-3 py-2 text-sm font-medium rounded transition-all duration-200
+                rk-flex rk-items-center rk-gap-2 rk-px-3 rk-py-2 rk-text-sm rk-font-medium rk-rounded rk-transition-all rk-duration-200
                 ${
                   expandedNodes.size > 0
-                    ? "bg-[#2a2a35] text-[#e0e0e0] border border-[#3a3a45] hover:bg-[#3a3a45]"
-                    : "bg-gradient-to-r from-[#1976d2] to-[#64b5f6] text-white hover:from-[#1565c0] hover:to-[#42a5f5]"
+                    ? "rk-bg-[#2a2a35] rk-text-[#e0e0e0] rk-border rk-border-[#3a3a45] hover:rk-bg-[#3a3a45]"
+                    : "rk-bg-gradient-to-r rk-from-[#1976d2] rk-to-[#64b5f6] rk-text-white hover:rk-from-[#1565c0] hover:rk-to-[#42a5f5]"
                 }
               `}
               onClick={toggleExpandAllNodes}
             >
               {expandedNodes.size > 0 ? (
                 <>
-                  <FaCompressAlt className="w-3.5 h-3.5" />
+                  <FaCompressAlt className="rk-w-3.5 rk-h-3.5" />
                   <span>Collapse All</span>
                 </>
               ) : (
                 <>
-                  <FaExpandAlt className="w-3.5 h-3.5" />
+                  <FaExpandAlt className="rk-w-3.5 rk-h-3.5" />
                   <span>Expand All</span>
                 </>
               )}
             </button>
 
             <button
-              className="flex items-center gap-2 px-3 py-2 text-sm font-medium bg-[#2a2a35] border border-[#3a3a45] text-[#e0e0e0] rounded hover:bg-[#3a3a45] hover:border-[#4a4a55] transition-colors"
+              className="rk-flex rk-items-center rk-gap-2 rk-px-3 rk-py-2 rk-text-sm rk-font-medium rk-bg-[#2a2a35] rk-border rk-border-[#3a3a45] rk-text-[#e0e0e0] rk-rounded hover:rk-bg-[#3a3a45] hover:rk-border-[#4a4a55] rk-transition-colors"
               onClick={resetTree}
             >
-              <FaRedo className="w-3.5 h-3.5" />
+              <FaRedo className="rk-w-3.5 rk-h-3.5" />
               <span>Reset</span>
             </button>
           </div>
 
-          <div className="text-xs text-[#888] px-2 py-1 bg-[#2a2a35] rounded">
+          <div className="rk-text-xs rk-text-[#888] rk-px-2 rk-py-1 rk-bg-[#2a2a35] rk-rounded">
             {expandedNodes.size > 0
               ? `${expandedNodes.size} nodes expanded`
               : "All collapsed"}
@@ -208,18 +210,18 @@ export const ListContainer: React.FC<Props> = ({
         </div>
 
         {/* Tree Content */}
-        <div className="border border-[#2a2a2a] rounded-lg overflow-hidden bg-[#1a1a1f]">
+        <div className="rk-border rk-border-[#2a2a2a] rk-rounded-lg rk-overflow-hidden rk-bg-[#1a1a1f]">
           {/* Tree Header */}
-          <div className="px-4 py-3 border-b border-[#2a2a2a] bg-[#202025]">
-            <div className="flex items-center justify-between text-xs font-medium text-[#a0a0a0] uppercase tracking-wider">
-              <div className="flex items-center gap-3">
-                <span className="px-2 py-1 text-xs font-medium bg-[#2a2a35] text-[#888] rounded">
+          <div className="rk-px-4 rk-py-3 rk-border-b rk-border-[#2a2a2a] rk-bg-[#202025]">
+            <div className="rk-flex rk-items-center rk-justify-between rk-text-xs rk-font-medium rk-text-[#a0a0a0] rk-uppercase rk-tracking-wider">
+              <div className="rk-flex rk-items-center rk-gap-3">
+                <span className="rk-px-2 rk-py-1 rk-text-xs rk-font-medium rk-bg-[#2a2a35] rk-text-[#888] rk-rounded">
                   {totalNodes} nodes
                 </span>
               </div>
 
-              <div className="flex items-center gap-2">
-                <span className="text-xs text-[#888] px-2 py-1 bg-[#2a2a35] rounded">
+              <div className="rk-flex rk-items-center rk-gap-2">
+                <span className="rk-text-xs rk-text-[#888] rk-px-2 rk-py-1 rk-bg-[#2a2a35] rk-rounded">
                   {routes.length} root routes
                 </span>
               </div>
@@ -227,13 +229,13 @@ export const ListContainer: React.FC<Props> = ({
           </div>
 
           {/* Tree Nodes */}
-          <div className="p-4">
+          <div className="rk-p-4">
             {graph.length === 0 ? (
-              <div className="text-center py-8 text-[#888]">
+              <div className="rk-text-center rk-py-8 rk-text-[#888]">
                 No routes available
               </div>
             ) : (
-              <div className="space-y-2">
+              <div className="rk-space-y-2">
                 {graph.map((node) => (
                   <List
                     key={node.id}
@@ -251,12 +253,12 @@ export const ListContainer: React.FC<Props> = ({
         </div>
 
         {/* Footer Info */}
-        <div className="mt-3 text-xs text-[#666] flex items-center justify-between">
-          <div className="flex items-center gap-3">
+        <div className="rk-mt-3 rk-text-xs rk-text-[#666] rk-flex rk-items-center rk-justify-between">
+          <div className="rk-flex rk-items-center rk-gap-3">
             <span>• Click nodes to select</span>
             <span>• Click arrow to expand/collapse</span>
           </div>
-          <span className="text-[#888]">
+          <span className="rk-text-[#888]">
             {selectedNode
               ? `Selected: ${selectedNode.path}`
               : "No node selected"}

@@ -14,8 +14,8 @@ const IssuesPanel = ({ issues}: IssuesPanelProps) => {
   };
 
   return (
-    <div className="p-6">
-      <div className="w-full">
+    <div className="rk-p-6 rk-h-screen">
+      <div className="rk-w-full rk-h-full">
         <IssuesCard
           issues={Array.isArray(issues) ? issues : []}
           title="Errors"

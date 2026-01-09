@@ -288,7 +288,7 @@ export const MultipleTest: React.FC<MultipleTestProps> = ({
   const handleTestAllRoutes = () => {
     navigate(currentRoute);
   };
-  console.log(timingRecords)
+
   // const currentRecord = timingRecords[currentRouteIndex];
   const progressPercentage = routes.length > 0 ? ((currentRouteIndex + 1) / routes.length) * 100 : 0;
 

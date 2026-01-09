@@ -634,38 +634,38 @@ if (
   }, 0);
 
   return (
-    <div className="h-full flex flex-col bg-[#0f0f12] overflow-hidden">
+    <div className="rk-h-full rk-flex rk-flex-col rk-bg-[#0f0f12] rk-overflow-hidden">
       {/* Controls section */}
-      <div className="border-b py-3 bg-[#1a1a1f] border-[#2a2a2a]">
-        <div className="w-full max-w-[95%] mx-auto flex justify-between items-center shrink-0">
-          <div className="flex gap-3 items-center">
+      <div className="rk-border-b rk-py-3 rk-bg-[#1a1a1f] rk-border-[#2a2a2a]">
+        <div className="rk-w-full rk-max-w-[95%] rk-mx-auto rk-flex rk-justify-between rk-items-center rk-shrink-0">
+          <div className="rk-flex rk-gap-3 rk-items-center">
             <button
               onClick={handleToggleExpandCollapse}
-              className="px-4 py-2 bg-[#2a2a35] border border-[#3a3a45] text-[#e0e0e0] rounded-lg cursor-pointer text-sm font-medium transition-all duration-200 hover:bg-[#3a3a45] hover:border-[#4a4a55] hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-1.5"
+              className="rk-px-4 rk-py-2 rk-bg-[#2a2a35] rk-border rk-border-[#3a3a45] rk-text-[#e0e0e0] rk-rounded-lg rk-cursor-pointer rk-text-sm rk-font-medium rk-transition-all rk-duration-200 hover:rk-bg-[#3a3a45] hover:rk-border-[#4a4a55] hover:-rk-translate-y-0.5 active:rk-translate-y-0 rk-flex rk-items-center rk-gap-1.5"
             >
               {isExpanded ? "Collapse All" : "Expand All"}
             </button>
             <button
               onClick={handleResetView}
-              className="px-4 py-2 bg-[#2a2a35] border border-[#3a3a45] text-[#e0e0e0] rounded-lg cursor-pointer text-sm font-medium transition-all duration-200 hover:bg-[#3a3a45] hover:border-[#4a4a55] hover:-translate-y-0.5 active:translate-y-0"
+              className="rk-px-4 rk-py-2 rk-bg-[#2a2a35] rk-border rk-border-[#3a3a45] rk-text-[#e0e0e0] rk-rounded-lg rk-cursor-pointer rk-text-sm rk-font-medium rk-transition-all rk-duration-200 hover:rk-bg-[#3a3a45] hover:rk-border-[#4a4a55] hover:-rk-translate-y-0.5 active:rk-translate-y-0"
             >
               Reset View
             </button>
 
-             <div className=" hidden md:flex items-center gap-2 bg-[#2a2a35] rounded-lg px-2 py-1 border border-[#3a3a45]">
+             <div className="rk-hidden md:rk-flex rk-items-center rk-gap-2 rk-bg-[#2a2a35] rk-rounded-lg rk-px-2 rk-py-1 rk-border rk-border-[#3a3a45]">
             <button
               onClick={handleZoomOut}
-              className="w-8 h-8 flex items-center justify-center bg-[#3a3a45] text-white rounded-md cursor-pointer text-lg font-bold transition-all duration-200 hover:bg-[#4a4a55] hover:scale-110 active:scale-95"
+              className="rk-w-8 rk-h-8 rk-flex rk-items-center rk-justify-center rk-bg-[#3a3a45] rk-text-white rk-rounded-md rk-cursor-pointer rk-text-lg rk-font-bold rk-transition-all rk-duration-200 hover:rk-bg-[#4a4a55] hover:rk-scale-110 active:rk-scale-95"
               aria-label="Zoom out"
             >
               −
             </button>
-            <span className="text-sm text-[#a0a0a0] font-medium min-w-[45px] text-center">
+            <span className="rk-text-sm rk-text-[#a0a0a0] rk-font-medium rk-min-w-[45px] rk-text-center">
               {Math.round(transform.k * 100)}%
             </span>
             <button
               onClick={handleZoomIn}
-              className="w-8 h-8 flex items-center justify-center bg-[#3a3a45] text-white rounded-md cursor-pointer text-lg font-bold transition-all duration-200 hover:bg-[#4a4a55] hover:scale-110 active:scale-95"
+              className="rk-w-8 rk-h-8 rk-flex rk-items-center rk-justify-center rk-bg-[#3a3a45] rk-text-white rk-rounded-md rk-cursor-pointer rk-text-lg rk-font-bold rk-transition-all rk-duration-200 hover:rk-bg-[#4a4a55] hover:rk-scale-110 active:rk-scale-95"
               aria-label="Zoom in"
             >
               +
@@ -673,14 +673,14 @@ if (
           </div>
 
 
-          <div className="md:flex items-center hidden  bg-[#1a1a1f] justify-between gap-4">
+          <div className="md:rk-flex rk-items-center rk-hidden rk-bg-[#1a1a1f] rk-justify-between rk-gap-4">
             
-              <span className="flex items-center gap-1.5 text-sm text-[#888] px-3 py-2 bg-[#2a2a35] rounded-lg border border-[#3a3a45]">
-                <span className="text-base">🌳</span>
+              <span className="rk-flex rk-items-center rk-gap-1.5 rk-text-sm rk-text-[#888] rk-px-3 rk-py-2 rk-bg-[#2a2a35] rk-rounded-lg rk-border rk-border-[#3a3a45]">
+                <span className="rk-text-base">🌳</span>
                 {routes.length} root{routes.length !== 1 ? "s" : ""}
               </span>
-              <span className="flex items-center gap-1.5 text-sm text-[#888] px-3 py-2 bg-[#2a2a35] rounded-lg border border-[#3a3a45]">
-                <span className="text-base">📊</span>
+              <span className="rk-flex rk-items-center rk-gap-1.5 rk-text-sm rk-text-[#888] rk-px-3 rk-py-2 rk-bg-[#2a2a35] rk-rounded-lg rk-border rk-border-[#3a3a45]">
+                <span className="rk-text-base">📊</span>
                 {totalNodeCount} nodes
               </span>
             
@@ -689,20 +689,20 @@ if (
           </div>
 
           
-        <div className="flex items-center md:hidden gap-2 bg-[#2a2a35] rounded-lg px-2 py-1 border border-[#3a3a45]">
+        <div className="rk-flex rk-items-center md:rk-hidden rk-gap-2 rk-bg-[#2a2a35] rk-rounded-lg rk-px-2 rk-py-1 rk-border rk-border-[#3a3a45]">
             <button
               onClick={handleZoomOut}
-              className="w-8 h-8 flex items-center justify-center bg-[#3a3a45] text-white rounded-md cursor-pointer text-lg font-bold transition-all duration-200 hover:bg-[#4a4a55] hover:scale-110 active:scale-95"
+              className="rk-w-8 rk-h-8 rk-flex rk-items-center rk-justify-center rk-bg-[#3a3a45] rk-text-white rk-rounded-md rk-cursor-pointer rk-text-lg rk-font-bold rk-transition-all rk-duration-200 hover:rk-bg-[#4a4a55] hover:rk-scale-110 active:rk-scale-95"
               aria-label="Zoom out"
             >
               −
             </button>
-            <span className="text-sm text-[#a0a0a0] font-medium min-w-[45px] text-center">
+            <span className="rk-text-sm rk-text-[#a0a0a0] rk-font-medium rk-min-w-[45px] rk-text-center">
               {Math.round(transform.k * 100)}%
             </span>
             <button
               onClick={handleZoomIn}
-              className="w-8 h-8 flex items-center justify-center bg-[#3a3a45] text-white rounded-md cursor-pointer text-lg font-bold transition-all duration-200 hover:bg-[#4a4a55] hover:scale-110 active:scale-95"
+              className="rk-w-8 rk-h-8 rk-flex rk-items-center rk-justify-center rk-bg-[#3a3a45] rk-text-white rk-rounded-md rk-cursor-pointer rk-text-lg rk-font-bold rk-transition-all rk-duration-200 hover:rk-bg-[#4a4a55] hover:rk-scale-110 active:rk-scale-95"
               aria-label="Zoom in"
             >
               +
@@ -712,15 +712,15 @@ if (
 
       </div>
 
-      <div className="bg-[#1a1a1f] block md:hidden ">
-        <div className="flex items-center   justify-between  w-full max-w-[95%] mx-auto  gap-4">
+      <div className="rk-bg-[#1a1a1f] rk-block md:rk-hidden">
+        <div className="rk-flex rk-items-center rk-justify-between rk-w-full rk-max-w-[95%] rk-mx-auto rk-gap-4">
             
-              <span className="flex items-center gap-1.5 text-sm text-[#888] px-3 py-2 bg-[#2a2a35] rounded-lg border border-[#3a3a45]">
-                <span className="text-base">🌳</span>
+              <span className="rk-flex rk-items-center rk-gap-1.5 rk-text-sm rk-text-[#888] rk-px-3 rk-py-2 rk-bg-[#2a2a35] rk-rounded-lg rk-border rk-border-[#3a3a45]">
+                <span className="rk-text-base">🌳</span>
                 {routes.length} root{routes.length !== 1 ? "s" : ""}
               </span>
-              <span className="flex items-center gap-1.5 text-sm text-[#888] px-3 py-2 bg-[#2a2a35] rounded-lg border border-[#3a3a45]">
-                <span className="text-base">📊</span>
+              <span className="rk-flex rk-items-center rk-gap-1.5 rk-text-sm rk-text-[#888] rk-px-3 rk-py-2 rk-bg-[#2a2a35] rk-rounded-lg rk-border rk-border-[#3a3a45]">
+                <span className="rk-text-base">📊</span>
                 {totalNodeCount} nodes
               </span>
             
@@ -730,13 +730,13 @@ if (
       {/* Canvas container */}
       <div
         ref={containerRef}
-        className="flex-1 overflow-hidden bg-[#1a1a1f] relative"
+        className="rk-flex-1 rk-overflow-hidden rk-bg-[#1a1a1f] rk-relative"
       >
         <svg
           ref={svgRef}
           width={dimensions.width}
           height={dimensions.height}
-          className="block w-full h-full"
+          className="rk-block rk-w-full rk-h-full"
           style={{
             scrollbarWidth: "thin",
             scrollbarColor: "#3a3a45 #1a1a1f",

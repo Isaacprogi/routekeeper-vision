@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { SingleTest } from "./SingleTest";
 import type { RouteTiming } from "../../../utils/type";
 
@@ -18,30 +18,26 @@ export const RouteMountPanel: React.FC<RouteMountPanelProps> = ({
   toggleTestingMode
 }) => {
 
- useEffect(()=>{
-    console.log('ehkllo',testingMode)
- },[testingMode])
 
  const handleTest =() => {
-  console.log(testingMode)
   toggleTestingMode()
  }
 
   return (
-    <div className="bg-[#1a1a1f] min-h-screen p-6">
-      <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-semibold text-[#e0e0e0]">
+    <div className="rk-bg-[#1a1a1f] rk-min-h-screen rk-p-6">
+      <div className="rk-flex rk-items-center rk-justify-between rk-mb-6">
+        <h1 className="rk-text-2xl rk-font-semibold rk-text-[#e0e0e0]">
           Route Performance Testing
         </h1>
         
         <button
           onClick={handleTest}
-          className="px-4 py-2 bg-[#2a2a35] border border-[#3a3a45] text-[#e0e0e0] rounded-lg cursor-pointer text-sm font-medium transition-all duration-200 hover:bg-[#3a3a45] hover:border-[#4a4a55] hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2"
+          className="rk-px-4 rk-py-2 rk-bg-[#2a2a35] rk-border rk-border-[#3a3a45] rk-text-[#e0e0e0] rk-rounded-lg rk-cursor-pointer rk-text-sm rk-font-medium rk-transition-all rk-duration-200 hover:rk-bg-[#3a3a45] hover:rk-border-[#4a4a55] hover:rk--translate-y-0.5 active:rk-translate-y-0 rk-flex rk-items-center rk-gap-2"
         >
           {testingMode ? (
             <>
               <svg 
-                className="w-4 h-4" 
+                className="rk-w-4 rk-h-4" 
                 fill="currentColor" 
                 viewBox="0 0 20 20" 
                 xmlns="http://www.w3.org/2000/svg"
@@ -57,7 +53,7 @@ export const RouteMountPanel: React.FC<RouteMountPanelProps> = ({
           ) : (
             <>
               <svg 
-                className="w-4 h-4" 
+                className="rk-w-4 rk-h-4" 
                 fill="none" 
                 stroke="currentColor" 
                 viewBox="0 0 24 24" 
@@ -85,11 +81,11 @@ export const RouteMountPanel: React.FC<RouteMountPanelProps> = ({
           toggleTestingMode={toggleTestingMode}
         />
       ) : (
-        <div className="bg-[#2a2a35] border border-[#3a3a45] rounded-xl p-8 text-center">
-          <div className="flex flex-col items-center justify-center space-y-4">
-            <div className="w-16 h-16 rounded-full bg-[#1a1a1f] border border-[#3a3a45] flex items-center justify-center">
+        <div className="rk-bg-[#2a2a35] rk-border rk-border-[#3a3a45] rk-rounded-xl rk-p-8 rk-text-center">
+          <div className="rk-flex rk-flex-col rk-items-center rk-justify-center rk-space-y-4">
+            <div className="rk-w-16 rk-h-16 rk-rounded-full rk-bg-[#1a1a1f] rk-border rk-border-[#3a3a45] rk-flex rk-items-center rk-justify-center">
               <svg 
-                className="w-8 h-8 text-[#e0e0e0]" 
+                className="rk-w-8 rk-h-8 rk-text-[#e0e0e0]" 
                 fill="none" 
                 stroke="currentColor" 
                 viewBox="0 0 24 24" 
@@ -103,19 +99,19 @@ export const RouteMountPanel: React.FC<RouteMountPanelProps> = ({
                 />
               </svg>
             </div>
-            <h2 className="text-xl font-medium text-[#e0e0e0]">
+            <h2 className="rk-text-xl rk-font-medium rk-text-[#e0e0e0]">
               Testing Mode is Disabled
             </h2>
-            <p className="text-[#a0a0a0] max-w-md">
+            <p className="rk-text-[#a0a0a0] rk-max-w-md">
               Enable testing mode to render the component and start performance testing.
               This prevents accidental test runs and saves resources.
             </p>
             <button
               onClick={toggleTestingMode}
-              className="mt-4 px-6 py-3 bg-purple-600 border border-blue-700 text-white rounded-lg cursor-pointer text-sm font-medium transition-all duration-200 hover:bg-blue-700 hover:border-blue-800 hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2"
+              className="rk-mt-4 rk-px-6 rk-py-3 rk-bg-purple-600 rk-border rk-border-blue-700 rk-text-white rk-rounded-lg rk-cursor-pointer rk-text-sm rk-font-medium rk-transition-all rk-duration-200 hover:rk-bg-blue-700 hover:rk-border-blue-800 hover:rk--translate-y-0.5 active:rk-translate-y-0 rk-flex rk-items-center rk-gap-2"
             >
               <svg 
-                className="w-4 h-4" 
+                className="rk-w-4 rk-h-4" 
                 fill="none" 
                 stroke="currentColor" 
                 viewBox="0 0 24 24" 

@@ -21,27 +21,27 @@ const IssuesList: React.FC<IssuesComponentProps> = ({
       case 'success':
         return {
           icon: FaCheckCircle,
-          iconColor: 'text-[#4caf50]',
-          bgColor: 'bg-[#4caf50]/10',
-          borderColor: 'border-[#4caf50]/30',
-          countColor: 'bg-[#4caf50]/20 text-[#4caf50]'
+          iconColor: 'rk-text-[#4caf50]',
+          bgColor: 'rk-bg-[#4caf50]/10',
+          borderColor: 'rk-border-[#4caf50]/30',
+          countColor: 'rk-bg-[#4caf50]/20 rk-text-[#4caf50]'
         };
       case 'warning':
         return {
           icon: FaExclamationTriangle,
-          iconColor: 'text-[#ff9800]',
-          bgColor: 'bg-[#ff9800]/10',
-          borderColor: 'border-[#ff9800]/30',
-          countColor: 'bg-[#ff9800]/20 text-[#ff9800]'
+          iconColor: 'rk-text-[#ff9800]',
+          bgColor: 'rk-bg-[#ff9800]/10',
+          borderColor: 'rk-border-[#ff9800]/30',
+          countColor: 'rk-bg-[#ff9800]/20 rk-text-[#ff9800]'
         };
       case 'error':
       default:
         return {
           icon: FaTimesCircle,
-          iconColor: 'text-[#ef5350]',
-          bgColor: 'bg-[#ef5350]/10',
-          borderColor: 'border-[#ef5350]/30',
-          countColor: 'bg-[#ef5350]/20 text-[#ef5350]'
+          iconColor: 'rk-text-[#ef5350]',
+          bgColor: 'rk-bg-[#ef5350]/10',
+          borderColor: 'rk-border-[#ef5350]/30',
+          countColor: 'rk-bg-[#ef5350]/20 rk-text-[#ef5350]'
         };
     }
   };
@@ -50,14 +50,14 @@ const IssuesList: React.FC<IssuesComponentProps> = ({
   const Icon = config.icon;
 
   return (
-    <div className="bg-[#1a1a1f] rounded-lg border border-[#2a2a2a] overflow-hidden">
+    <div className="rk-bg-[#1a1a1f] rk-rounded-lg rk-border rk-border-[#2a2a2a] rk-overflow-hidden">
       {/* Header */}
-      <div className="px-4 py-3 border-b border-[#2a2a2a] bg-[#202025]">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <Icon className={`w-5 h-5 ${config.iconColor}`} />
-            <h3 className="text-[#e0e0e0] font-medium">{title}</h3>
-            <span className={`px-2 py-1 rounded text-xs font-medium ${config.countColor}`}>
+      <div className="rk-px-4 rk-py-3 rk-border-b rk-border-[#2a2a2a] rk-bg-[#202025]">
+        <div className="rk-flex rk-items-center rk-justify-between">
+          <div className="rk-flex rk-items-center rk-gap-3">
+            <Icon className={`rk-w-5 rk-h-5 ${config.iconColor}`} />
+            <h3 className="rk-text-[#e0e0e0] rk-font-medium">{title}</h3>
+            <span className={`rk-px-2 rk-py-1 rk-rounded rk-text-xs rk-font-medium ${config.countColor}`}>
               {issues.length}
             </span>
           </div>
@@ -65,28 +65,26 @@ const IssuesList: React.FC<IssuesComponentProps> = ({
       </div>
 
       {/* Issues List */}
-      <div className="divide-y divide-[#2a2a2a]">
+      <div className="rk-divide-y rk-divide-[#2a2a2a]">
         {issues.length > 0 ? (
           issues.map((issue, index) => (
             <div
               key={index}
-              className={`px-4 py-3 hover:bg-[#202025] transition-colors cursor-pointer ${
-                onIssueClick ? 'cursor-pointer' : 'cursor-default'
-              }`}
+              className={`rk-px-4 rk-py-3 hover:rk-bg-[#202025] rk-transition-colors ${onIssueClick ? 'rk-cursor-pointer' : 'rk-cursor-default'}`}
               onClick={() => onIssueClick?.(issue, index)}
             >
-              <div className="flex items-start gap-3">
-                <div className={`mt-0.5 p-1 rounded ${config.bgColor}`}>
-                  <Icon className={`w-3 h-3 ${config.iconColor}`} />
+              <div className="rk-flex rk-items-start rk-gap-3">
+                <div className={`rk-mt-0.5 rk-p-1 rk-rounded ${config.bgColor}`}>
+                  <Icon className={`rk-w-3 rk-h-3 ${config.iconColor}`} />
                 </div>
-                <div className="flex-1">
-                  <p className="text-[#e0e0e0] text-sm leading-relaxed">{issue}</p>
-                  <div className="flex items-center gap-2 mt-2">
-                    <span className="text-xs text-[#888]">
+                <div className="rk-flex-1">
+                  <p className="rk-text-[#e0e0e0] rk-text-sm rk-leading-relaxed">{issue}</p>
+                  <div className="rk-flex rk-items-center rk-gap-2 rk-mt-2">
+                    <span className="rk-text-xs rk-text-[#888]">
                       Issue #{index + 1}
                     </span>
-                    <span className="text-xs text-[#888]">•</span>
-                    <span className="text-xs text-[#888]">
+                    <span className="rk-text-xs rk-text-[#888]">•</span>
+                    <span className="rk-text-xs rk-text-[#888]">
                       {new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                     </span>
                   </div>
@@ -95,27 +93,27 @@ const IssuesList: React.FC<IssuesComponentProps> = ({
             </div>
           ))
         ) : (
-          <div className="px-4 py-8 text-center">
-            <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#2a2a35] mb-3">
-              <FaCheckCircle className="w-6 h-6 text-[#4caf50]" />
+          <div className="rk-px-4 rk-py-8 rk-text-center">
+            <div className="rk-inline-flex rk-items-center rk-justify-center rk-w-12 rk-h-12 rk-rounded-full rk-bg-[#2a2a35] rk-mb-3">
+              <FaCheckCircle className="rk-w-6 rk-h-6 rk-text-[#4caf50]" />
             </div>
-            <p className="text-[#888] text-sm">{emptyMessage}</p>
+            <p className="rk-text-[#888] rk-text-sm">{emptyMessage}</p>
           </div>
         )}
       </div>
 
       {/* Footer */}
       {issues.length > 0 && (
-        <div className="px-4 py-3 border-t border-[#2a2a2a] bg-[#202025]">
-          <div className="flex items-center justify-between">
-            <p className="text-xs text-[#888]">
+        <div className="rk-px-4 rk-py-3 rk-border-t rk-border-[#2a2a2a] rk-bg-[#202025]">
+          <div className="rk-flex rk-items-center rk-justify-between">
+            <p className="rk-text-xs rk-text-[#888]">
               {issues.length === 1 ? '1 issue found' : `${issues.length} issues found`}
             </p>
-            {/* <div className="flex items-center gap-2">
-              <button className="text-xs px-3 py-1 rounded border border-[#2a2a2a] text-[#888] hover:text-[#e0e0e0] hover:border-[#3a3a3a] transition-colors">
+            {/* <div className="rk-flex rk-items-center rk-gap-2">
+              <button className="rk-text-xs rk-px-3 rk-py-1 rk-rounded rk-border rk-border-[#2a2a2a] rk-text-[#888] hover:rk-text-[#e0e0e0] hover:rk-border-[#3a3a3a] rk-transition-colors">
                 Export
               </button>
-              <button className="text-xs px-3 py-1 rounded bg-[#2a2a2a] text-[#e0e0e0] hover:bg-[#3a3a3a] transition-colors">
+              <button className="rk-text-xs rk-px-3 rk-py-1 rk-rounded rk-bg-[#2a2a2a] rk-text-[#e0e0e0] hover:rk-bg-[#3a3a3a] rk-transition-colors">
                 Resolve All
               </button>
             </div> */}
