@@ -5,7 +5,8 @@
 The **RouteKeeper Vision** is a developer-focused plugin designed to help you
 **understand, inspect, and reason about your React Router configuration using routekeeper**.
 
-<img src="https://github.com/isaacprogi/routekeeper-vision/raw/main/public/rv-screenshot.png" alt="AI World Population Projection screenshot" />
+![RouteKeeper Vision Screenshot](https://raw.githubusercontent.com/isaacprogi/routekeeper-vision/main/public/rv-screenshot.png)
+
 
 ### Installation
 
@@ -25,10 +26,9 @@ pnpm add routekeeper-vision
 This is used with routekeeper
 
 ```tsx
-import React, { useMemo } from "react";
 import { BrowserRouter } from "react-router-dom";
 
-import { RouteKeeper,defineConfig } from "routekeeper-react";
+import { RouteKeeper,defineRoutes } from "routekeeper-react";
 import { RouteKeeperVision } from "routekeeper-vision";
 
 
@@ -42,7 +42,7 @@ const userIsLoggedIn = true;
 const isLoading = false;
 
 export default function App() {
-  const routes = defineConfig([
+  const routes = defineRoutes([
       {
         path: "/",
         element: <Home />,
