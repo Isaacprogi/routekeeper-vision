@@ -14,7 +14,7 @@ const IssuesList: React.FC<IssuesComponentProps> = ({
   title = "Issues",
   type = 'error',
   emptyMessage = "No issues found",
-  onIssueClick
+  onIssueClick,
 }) => {
   const getTypeConfig = () => {
     switch (type) {

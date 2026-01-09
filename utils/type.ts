@@ -135,9 +135,10 @@ export interface RouteVisionProps {
   routes: RouteConfig[];
   timingRecords: RouteTiming[];
   setTimingRecords: React.Dispatch<React.SetStateAction<RouteTiming[]>>;
-  issues:string[]
+  issues:string[];
   setIssues:React.Dispatch<React.SetStateAction<string[]>>
   testingMode:boolean;
   toggleTestingMode:()=>void;
+  auth:boolean;
 };
 

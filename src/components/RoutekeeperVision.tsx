@@ -39,7 +39,7 @@ export const RouteKeeperVision: React.FC<RouteVisionProps> = ({
   routes,
   timingRecords,
   setTimingRecords,
-  issues,setIssues,testingMode,toggleTestingMode
+  issues,setIssues,testingMode,toggleTestingMode,auth
 }) => {
   const [viewMode, setViewMode] = useState<ViewMode>(() => {
     const saved = localStorage.getItem(STORAGE_KEYS.VIEW_MODE);
@@ -265,6 +265,7 @@ export const RouteKeeperVision: React.FC<RouteVisionProps> = ({
                 timingRecords={timingRecords}
                 testingMode={testingMode}
                 toggleTestingMode={toggleTestingMode}
+                auth={auth}
             
               />
             ) : viewMode === "issues" ? (
